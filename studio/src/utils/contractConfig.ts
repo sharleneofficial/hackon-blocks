@@ -1,9 +1,9 @@
 import { http, createConfig } from '@wagmi/core'
-import { polygonAmoy } from '@wagmi/core/chains'
+import { polygonZkEvmCardona } from '@wagmi/core/chains'
 
 export const config = createConfig({
-	chains: [polygonAmoy],
+	chains: [polygonZkEvmCardona],
 	transports: {
-		[polygonAmoy.id]: http(),
+		[polygonZkEvmCardona.id]: http(),
 	},
 })

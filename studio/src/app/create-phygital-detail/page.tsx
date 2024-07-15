@@ -27,7 +27,7 @@ import { v4 as uuidv4 } from 'uuid'
 import { useAccount, useChainId, useWalletClient } from 'wagmi'
 import { NFTStorage } from 'nft.storage'
 import { Hex, createPublicClient, http } from 'viem'
-import { polygonAmoy } from 'viem/chains'
+import { polygonZkEvmCardona } from 'viem/chains'
 import axios from 'axios'
 import phygital from "@/lib/phygital.json"
 
@@ -63,7 +63,7 @@ export default function CreatePhygitalDetail() {
 	const chainId = useChainId()
 	const { data: walletClient } = useWalletClient({ chainId })
 	const publicClient = createPublicClient({
-		chain: polygonAmoy,
+		chain: polygonZkEvmCardona,
 		transport: http(),
 	})
 

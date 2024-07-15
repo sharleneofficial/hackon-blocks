@@ -26,7 +26,7 @@ import { useRouter } from 'next/navigation'
 import { useAccount, useChainId, useWalletClient } from 'wagmi'
 import { NFTStorage } from 'nft.storage'
 import { Hex, createPublicClient, http } from 'viem'
-import { polygonAmoy } from 'viem/chains'
+import { polygonZkEvmCardona } from 'viem/chains'
 import axios from 'axios'
 
 import Simplestore from "@/lib/Simplestore.json"
@@ -80,7 +80,7 @@ export default function CreateBrand() {
     const chainId = useChainId()
     const { data: walletClient } = useWalletClient({ chainId })
     const publicClient = createPublicClient({
-        chain: polygonAmoy,
+        chain: polygonZkEvmCardona,
         transport: http(),
     })
 
