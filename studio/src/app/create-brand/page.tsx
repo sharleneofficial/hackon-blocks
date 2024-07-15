@@ -278,7 +278,7 @@ export default function CreateBrand() {
                     // const addressExists = result.some((user: { wallet_address: string | undefined }) => user.wallet_address === account.address);
 
                     // if (!addressExists) {
-                    toast.warning('Now we are deploying AccessMaster to manage out brand', {
+                    toast.warning('Now we are deploying AccessMaster to manage your brand', {
                         position: 'top-left',
                     })
                     const deploySuccess = await handleDeploy();
