@@ -107,35 +107,35 @@ export default function Review() {
 							<h1 className='text-2xl '>Phygital</h1>
 							<p className='text-xl mt-8'>Chain: Polygon network</p>
 						</div>
-						<div className='flex gap-8'>
+						<div className='flex gap-8 mt-6'>
 							<div>
 								<div>
 									<Label className='text-xl mb-6'>Phygital name </Label>
 									<Input
-										className='border-0 bg-[#0000001A] rounded'
+										className='border-0 bg-[#0000001A] rounded w-96'
 										value={parsedData.name}
 										readOnly
 									/>
 								</div>
-								<div>
+								<div className='mt-6'>
 									<Label className='text-xl mb-6'>Description</Label>
 									<Textarea
-										className='border-0 bg-[#0000001A] rounded'
+										className='border-0 bg-[#0000001A] rounded w-96'
 										value={parsedData.description}
 										readOnly
 									/>
 								</div>
 							</div>
-							<div className='border border-black p-8'>
+							<div className='border border-black p-8 w-2/6 h-2/3 ml-40'>
 								<img
 									src={`https://nftstorage.link/${parsedData.image.replace('ipfs://', 'ipfs/')}`}
 									alt='preview'
-									height={200}
-									width={200}
+									height={400}
+									width={400}
 								/>
 							</div>
 						</div>
-						<div>
+						<div className='mt-6'>
 							<h2>Category</h2>
 							<div className='bg-[#0000001A] rounded p-8 flex flex-wrap gap-12'>
 								{parsedData.category?.map((category: string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode> | null | undefined, index: Key | null | undefined) => (
@@ -146,7 +146,7 @@ export default function Review() {
 							</div>
 						</div>
 						<div className='flex items-center justify-between'>
-							<div>
+							<div className='mt-6'>
 								<Label className='text-xl mb-6'>Price*</Label>
 								<div className='flex gap-2'>
 									<Input
@@ -157,7 +157,7 @@ export default function Review() {
 									<span>ETH</span>
 								</div>
 							</div>
-							<div>
+							<div className='mt-6'>
 								<Label className='text-xl mb-6'>Quantity*</Label>
 								<div className='flex gap-2'>
 									<Input
@@ -168,7 +168,7 @@ export default function Review() {
 									<span>items</span>
 								</div>
 							</div>
-							<div>
+							<div className='mt-6'>
 								<Label className='text-xl mb-6'>Royalty</Label>
 								<div className='flex gap-2'>
 									<Input
@@ -180,7 +180,7 @@ export default function Review() {
 								</div>
 							</div>
 						</div>
-						<div>
+						<div className='mt-6'>
 							<h2 className='text-2xl'>Product Information for AI</h2>
 							<Textarea
 								className='border-0 bg-[#0000001A] rounded'
@@ -188,8 +188,8 @@ export default function Review() {
 								readOnly
 							/>
 						</div>
-						<div className='flex justify-between'>
-							<Button className='text-black bg-[#30D8FF] rounded-full ' onClick={() => handleButtonClick('phygital-details')}>
+						<div className='flex mt-6'>
+							<Button className='text-black bg-[#30D8FF] rounded-lg ' onClick={() => handleButtonClick('phygital-details')}>
 								Confirm
 							</Button>
 						</div>

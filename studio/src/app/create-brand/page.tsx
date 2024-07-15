@@ -438,7 +438,7 @@ export default function CreateBrand() {
                                     <div className='border border-dashed border-black h-60 w-[32rem] flex flex-col items-center justify-center p-6'>
                                         <UploadIcon />
                                         <p>Drag file here to upload. Choose file </p>
-                                        <p>Recommeded size 512 x 512 px</p>
+                                        <p>Recommended size 512 x 512 px</p>
                                         <div>
                                             <label
                                                 htmlFor='upload'
@@ -489,7 +489,7 @@ export default function CreateBrand() {
                                     <div className='border border-dashed border-black h-60 w-[32rem] flex flex-col items-center justify-center p-6'>
                                         <UploadIcon />
                                         <p>Drag file here to upload. Choose file </p>
-                                        <p>Recommeded size 1920 x 1080 px</p>
+                                        <p>Recommended size 1920 x 1080 px</p>
                                         <div>
                                             <label
                                                 htmlFor='uploadCover'

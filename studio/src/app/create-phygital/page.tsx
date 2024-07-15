@@ -303,7 +303,7 @@ export default function CreatePhygital() {
 							/>
 							<div>
 								<Label className='text-xl mb-6'>
-									Categories
+									Categories  &nbsp; &nbsp;&nbsp;
 									<span className='text-[#757575] text-base'>
 										Choose all that apply <Checkbox checked={true} />
 									</span>
@@ -439,7 +439,7 @@ export default function CreatePhygital() {
 									<div className='border border-dashed border-black h-60 w-[32rem] flex flex-col items-center justify-center p-6'>
 										<UploadIcon />
 										<p>Drag file here to upload. Choose file </p>
-										<p>Recommeded size 512 x 512 px</p>
+										<p>Recommended size 512 x 512 px</p>
 										<div>
 											<label
 												htmlFor='upload'

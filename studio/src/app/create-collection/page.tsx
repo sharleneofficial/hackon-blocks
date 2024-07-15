@@ -256,7 +256,7 @@ export default function CreateCollection() {
                     <h1 className='font-bold uppercase text-3xl mb-4'>
                         Create your Collection
                     </h1>
-                    <p>Fill out the details for creating your Colection</p>
+                    <p>Fill out the details for creating your Collection</p>
                 </div>
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -305,7 +305,7 @@ export default function CreateCollection() {
                                     <div className='border border-dashed border-black h-60 w-[32rem] flex flex-col items-center justify-center p-6'>
                                         <UploadIcon />
                                         <p>Drag file here to upload. Choose file </p>
-                                        <p>Recommeded size 512 x 512 px</p>
+                                        <p>Recommended size 512 x 512 px</p>
                                         <div>
                                             <label
                                                 htmlFor='upload'
@@ -356,7 +356,7 @@ export default function CreateCollection() {
                                     <div className='border border-dashed border-black h-60 w-[32rem] flex flex-col items-center justify-center p-6'>
                                         <UploadIcon />
                                         <p>Drag file here to upload. Choose file </p>
-                                        <p>Recommeded size 1920 x 1080 px</p>
+                                        <p>Recommended size 1920 x 1080 px</p>
                                         <div>
                                             <label
                                                 htmlFor='uploadCover'
@@ -402,7 +402,7 @@ export default function CreateCollection() {
                                 </div>
                             </div>
                             <Label className='text-xl'>
-									Categories
+									Categories &nbsp; &nbsp;&nbsp;
 									<span className='text-[#757575] text-base'>
 										Choose all that apply <Checkbox checked={true} />
 									</span>
