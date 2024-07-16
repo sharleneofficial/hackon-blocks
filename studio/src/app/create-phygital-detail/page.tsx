@@ -172,7 +172,7 @@ export default function CreatePhygitalDetail() {
 			setLoading(true)
 
 
-			toast.warning('Now we are deploing phygital to launch your nft collection', {
+			toast.warning('Now we are deploying phygital to launch your nft collection', {
 				position: 'top-left',
 			})
 			const deploySuccess = await PhygitalDeploy();

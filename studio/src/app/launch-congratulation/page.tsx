@@ -26,9 +26,12 @@ export default function Congratulations() {
 						Launch Another Collection
 					</Button>
 				</Link>
+				<Link href='https://discover-polygon.vercel.app/'>
 				<Button className='w-fit bg-[#30D8FF] hover:text-white rounded-full text-black text-2xl'>
 					View On Discover
 				</Button>
+				</Link>
+				
                 <Button className='w-fit bg-[#30D8FF] hover:text-white rounded-full text-black text-2xl'>
 					View On WebXR
 				</Button>

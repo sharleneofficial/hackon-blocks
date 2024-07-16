@@ -120,7 +120,7 @@ export default function Review() {
 								<div className='mt-6'>
 									<Label className='text-xl mb-6'>Description</Label>
 									<Textarea
-										className='border-0 bg-[#0000001A] rounded w-96'
+										className='border-0 bg-[#0000001A] rounded w-96 h-56'
 										value={parsedData.description}
 										readOnly
 									/>

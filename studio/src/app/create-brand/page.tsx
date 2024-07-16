@@ -337,7 +337,7 @@ export default function CreateBrand() {
                                 toast.success('Your Brand has been created', {
                                     position: 'top-left',
                                 })
-                                router.push(`/congratulations?bramd_name=${values.name}`);
+                                router.push(`/congratulations?brand_name=${values.name}`);
                             }
                         }
                     }
