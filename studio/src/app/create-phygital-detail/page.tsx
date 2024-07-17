@@ -171,10 +171,11 @@ export default function CreatePhygitalDetail() {
 			localStorage.setItem('phygitalDetailsData', JSON.stringify(values))
 			setLoading(true)
 
-
+			
 			toast.warning('Now we are deploying phygital to launch your nft collection', {
 				position: 'top-left',
 			})
+			await new Promise(resolve => setTimeout(resolve, 10000));
 			const deploySuccess = await PhygitalDeploy();
 			if (deploySuccess) {
 				const phygitalId = localStorage.getItem("PhygitalId");

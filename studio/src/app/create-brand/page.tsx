@@ -285,11 +285,14 @@ export default function CreateBrand() {
                     if (deploySuccess) {
                         const AccessMasterAddress = localStorage.getItem("AccessMasterAddress");
                         console.log('Contract deployed at:', AccessMasterAddress);
+
+                        await new Promise(resolve => setTimeout(resolve, 10000));
                         toast.warning('Now we will deploy TradeHub ', {
                             position: 'top-left',
                         })
                         const deployTradeHub = await TradehubDeploy();
                         if (deployTradeHub) {
+                            await new Promise(resolve => setTimeout(resolve, 5000));
                             const TradehubAddress = localStorage.getItem("TradehubAddress");
                             console.log('Contract deployed at:', TradehubAddress)
                             toast.success('Deploy Successful', {
