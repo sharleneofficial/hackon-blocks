@@ -316,7 +316,7 @@ export default function CreateBrand() {
                                     access_master: AccessMasterAddress,
                                     trade_hub: TradehubAddress,
                                     payout_address: account.address,
-                                    chain_id: "84532"
+                                    chain_id: "2442"
                                 }),
                             })
                             const brand = await response.json();
