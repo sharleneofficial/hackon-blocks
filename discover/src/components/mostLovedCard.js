@@ -12,17 +12,17 @@ const MostLovedCard = ({nft}) => {
   useEffect(() => {
    const brandmatch = async() => {
     const baseUri = process.env.NEXT_PUBLIC_URI || 'https://app.myriadflow.com';
-    localStorage.setItem("PloygonCardonaChain", "f0e4bdf6-2d6c-4c32-93d6-acf9ad5cdf44")
-    const chaintype = localStorage.getItem("PloygonCardonaChain")
+    // localStorage.setItem("PloygonCardonaChain", "f0e4bdf6-2d6c-4c32-93d6-acf9ad5cdf44")
+    // const chaintype = localStorage.getItem("PloygonCardonaChain")
 try {
-  const res = await fetch(`${baseUri}/brands/all/${chaintype}`, {
+  const res = await fetch(`${baseUri}/brands/all`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
     }
   });
 
-  const collres = await fetch(`${baseUri}/collections/all/${chaintype}`, {
+  const collres = await fetch(`${baseUri}/collections/all`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
@@ -62,11 +62,11 @@ try {
     const startingPrice = async() => {
 
       const baseUri = process.env.NEXT_PUBLIC_URI || 'https://app.myriadflow.com';
-      localStorage.setItem("PloygonCardonaChain", "f0e4bdf6-2d6c-4c32-93d6-acf9ad5cdf44")
-      const chaintype = localStorage.getItem("PloygonCardonaChain")
+      // localStorage.setItem("PloygonCardonaChain", "f0e4bdf6-2d6c-4c32-93d6-acf9ad5cdf44")
+      // const chaintype = localStorage.getItem("PloygonCardonaChain")
 try {
 
-  const phyres = await fetch(`${baseUri}/phygitals/all/${chaintype}`, {
+  const phyres = await fetch(`${baseUri}/phygitals/all`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'

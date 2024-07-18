@@ -8,13 +8,13 @@ const Leaderboard = () => {
 	const getBrands = async () => {
 		const baseUri = process.env.NEXT_PUBLIC_URI || 'https://app.myriadflow.com'
 
-		localStorage.setItem(
-			'PolygonCardonaChain',
-			'f0e4bdf6-2d6c-4c32-93d6-acf9ad5cdf44'
-		)
-		const chaintype = localStorage.getItem('PolygonCardonaChain')
+		// localStorage.setItem(
+		// 	'PolygonCardonaChain',
+		// 	'f0e4bdf6-2d6c-4c32-93d6-acf9ad5cdf44'
+		// )
+		// const chaintype = localStorage.getItem('PolygonCardonaChain')
 
-		const avatar = await fetch(`${baseUri}/avatars/all/${chaintype}`, {
+		const avatar = await fetch(`${baseUri}/avatars/all`, {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
