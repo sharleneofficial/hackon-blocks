@@ -37,6 +37,7 @@ export default function Home() {
   useEffect(() => {
     if (walletAddress) {
       localStorage.setItem("walletAddress", walletAddress);
+      localStorage.setItem("PloygonCardonaChain", "f0e4bdf6-2d6c-4c32-93d6-acf9ad5cdf44")
       setHasAddress(true);
       getBrands();
     } else {

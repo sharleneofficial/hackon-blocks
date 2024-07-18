@@ -215,6 +215,7 @@ export default function CreatePhygitalDetail() {
 						description: item.description || '',
 					}))
 					const variantId = uuidv4()
+					const chaintype = localStorage.getItem("PloygonCardonaChain");
 					await fetch(`${apiUrl}/variants`, {
 						method: 'POST',
 						headers: {
@@ -223,6 +224,7 @@ export default function CreatePhygitalDetail() {
 						body: JSON.stringify({
 							id: variantId,
 							phygital_id: phygitalId,
+							chaintype_id: chaintype,
 							variantData,
 						}),
 					})
