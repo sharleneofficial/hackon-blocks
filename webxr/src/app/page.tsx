@@ -32,13 +32,13 @@ export default function Home() {
 					<Link href='https://myriadflow.com' target='_blank'>
 						Home
 					</Link>
-					<Link href='https://discover-two.vercel.app' target='_blank'>
+					<Link href='https://discover-polygon.vercel.app/' target='_blank'>
 						Discover
 					</Link>
-					<Link href='https://studio-one-sigma.vercel.app' target='_blank'>
+					<Link href='https://studio-polygon.vercel.app/' target='_blank'>
 						Studio
 					</Link>
-					<Link href='https://webxr-ebon.vercel.app/' target='_blank'>
+					<Link href='https://webxr-polygon.vercel.app/' target='_blank'>
 						WebXR
 					</Link>
 				</div>

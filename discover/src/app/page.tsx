@@ -17,7 +17,7 @@ export default function Home() {
 
 	const apiUrl = isDevelopment
 		? 'http://localhost:3000' // Local development URL
-		: 'https://discover-two.vercel.app' // Production URL
+		: 'https://discover-polygon.vercel.app/' // Production URL
 
 	// console.log("api url", apiUrl);
 
@@ -118,8 +118,8 @@ export default function Home() {
 						Create & interact with AI-Powered brand ambassadors.
 					</div>
 					<div className='flex gap-10 mt-10'>
-						<Link href="https://discover-two.vercel.app" style={exploreButtonStyle}>Explore</Link>
-						<Link href="https://studio-one-sigma.vercel.app" target="_blank" style={exploreButtonStyle}>Launch</Link>
+						<Link href="https://discover-polygon.vercel.app/" style={exploreButtonStyle}>Explore</Link>
+						<Link href="https://studio-polygon.vercel.app/" target="_blank" style={exploreButtonStyle}>Launch</Link>
 					</div>
 				</div>
 

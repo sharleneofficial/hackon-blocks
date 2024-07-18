@@ -23,15 +23,15 @@ export const Navbar = () => {
 		},
 		{
 			title: 'Discover',
-			path: 'https://discover-two.vercel.app',
+			path: 'https://discover-polygon.vercel.app/',
 		},
 		{
 			title: 'Studio',
-			path: 'https://studio-one-sigma.vercel.app',
+			path: 'https://studio-polygon.vercel.app/',
 		},
 		{
 			title: 'WebXR',
-			path: 'https://webxr-ebon.vercel.app',
+			path: 'https://webxr-polygon.vercel.app/',
 		},
 	]
 

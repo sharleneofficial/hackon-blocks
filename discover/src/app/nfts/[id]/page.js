@@ -41,7 +41,7 @@ const NFTPage = ({ params }) => {
 
 	const apiUrl = isDevelopment
 		? 'http://localhost:3000' // Local development URL
-		: 'https://discover-two.vercel.app' // Production URL
+		: 'https://discover-polygon.vercel.app/' // Production URL
 
 	const [onephygital, setonePhygital] = useState([]);
 
