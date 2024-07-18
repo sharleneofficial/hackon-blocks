@@ -34,22 +34,24 @@ export default function Home() {
 		 //   const collres = await fetch(`${apiUrl}/api/collections`);
 
 		  const baseUri = process.env.NEXT_PUBLIC_URI || 'https://app.myriadflow.com';
+		  localStorage.setItem("PloygonCardonaChain", "f0e4bdf6-2d6c-4c32-93d6-acf9ad5cdf44")
+		  const chaintype = localStorage.getItem("PloygonCardonaChain")
 
-		  const res = await fetch(`${baseUri}/brands/all`, {
+		  const res = await fetch(`${baseUri}/brands/all/${chaintype}`, {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json'
 			}
 			});
 
-			const phyres = await fetch(`${baseUri}/phygitals/all`, {
+			const phyres = await fetch(`${baseUri}/phygitals/all/${chaintype}`, {
 				method: 'GET',
 				headers: {
 					'Content-Type': 'application/json'
 				}
 				});
 
-				const collres = await fetch(`${baseUri}/collections/all`, {
+				const collres = await fetch(`${baseUri}/collections/all/${chaintype}`, {
 					method: 'GET',
 					headers: {
 						'Content-Type': 'application/json'
@@ -63,6 +65,7 @@ export default function Home() {
 		  }
 	  
 		  const result = await res.json();
+		  console.log("Brands",result)
 		  const phyresult = await phyres.json();
 		  const collresult = await collres.json();
 	  

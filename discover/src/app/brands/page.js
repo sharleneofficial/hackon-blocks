@@ -14,8 +14,10 @@ const Page = () => {
 			setLoading(true);
 
 		  const baseUri = process.env.NEXT_PUBLIC_URI || 'https://app.myriadflow.com';
-
-		  const res = await fetch(`${baseUri}/brands/all`, {
+      localStorage.setItem("PloygonCardonaChain", "f0e4bdf6-2d6c-4c32-93d6-acf9ad5cdf44")
+      const chaintype = localStorage.getItem("PloygonCardonaChain")
+      
+		  const res = await fetch(`${baseUri}/brands/all/${chaintype}`, {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json'

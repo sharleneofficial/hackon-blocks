@@ -173,6 +173,8 @@ function HomePage() {
 
   const apikey = process.env.NEXT_PUBLIC_MORALIS_API_KEY;
   const baseUri = process.env.NEXT_PUBLIC_URI || 'https://app.myriadflow.com';
+  localStorage.setItem("PloygonCardonaChain", "f0e4bdf6-2d6c-4c32-93d6-acf9ad5cdf44")
+  const chaintype = localStorage.getItem("PloygonCardonaChain")
 
   useEffect(() => {
     const fetchNFTs = async () => {
@@ -201,7 +203,7 @@ function HomePage() {
   useEffect(() => {
     const fetchPhygitals = async () => {
       try {
-        const phyres = await fetch(`${baseUri}/phygitals/all`, {
+        const phyres = await fetch(`${baseUri}/phygitals/all/${chaintype}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'
