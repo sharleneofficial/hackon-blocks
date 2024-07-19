@@ -118,7 +118,8 @@ export default function Home() {
 						Create & interact with AI-Powered brand ambassadors.
 					</div>
 					<div className='flex gap-10 mt-10'>
-						<Link href="https://discover-polygon.vercel.app/" style={exploreButtonStyle}>Explore</Link>
+						{/* <Link href="https://discover-polygon.vercel.app/" style={exploreButtonStyle}>Explore</Link> */}
+						<Link href="#movetotrends" style={exploreButtonStyle}>Explore</Link>
 						<Link href="https://studio-polygon.vercel.app/" target="_blank" style={exploreButtonStyle}>Launch</Link>
 					</div>
 				</div>

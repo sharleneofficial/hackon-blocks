@@ -8,6 +8,10 @@ const MostLovedCard = ({nft}) => {
   const [lowestPrice, setlowestPrice] = useState("");
   const [lowestPriceUSD, setLowestPriceUSD] = useState("");
   const [productURL, setProductURL] = useState("");
+  const [isHovered, setIsHovered] = useState(false);
+  const [desc, setdesc] = useState("");
+  const [brandid, setbrandid] = useState("");
+  const [phygitals, setPhygitals] = useState([]);
 
   useEffect(() => {
    const brandmatch = async() => {
@@ -29,12 +33,20 @@ try {
     }
   });
 
-  if (!res.ok || !collres.ok) {
+  const phyres = await fetch(`${baseUri}/phygitals/all`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+
+  if (!res.ok || !collres.ok || !phyres.ok) {
     throw new Error('Failed to fetch data');
   }
 
   const result = await res.json();
   const collresult = await collres.json();
+  const phygitals = await phyres.json();
 
   const matchingColl = collresult.find(col => col.id === nft?.id);
 
@@ -44,8 +56,14 @@ try {
     const matchedBrand = result.find(brand => brand.id === matchingColl.brand_id);
     if (matchedBrand) {
       setLogos(matchedBrand.logo_image);
+      setdesc(matchedBrand.description);
+      setbrandid(matchedBrand.id);
     }
   }
+
+  const matchedCollections = phygitals.filter(phygitals => phygitals.collection_id === nft?.id);
+
+  setPhygitals(matchedCollections);
 
   // console.log("logo", logo, result, collresult);
 
@@ -128,6 +146,7 @@ try {
 
 
   return (
+    <div style={{ position: "relative", display: "inline-block" }}>
     <Link href={`/collection/${nft.id}`}>
         <div
         style={{
@@ -234,6 +253,71 @@ try {
         </div>
       </div>
      </Link>
+
+     <img
+                src={`https://nftstorage.link/ipfs/${logo?.slice(7)}`}
+                alt="New Icon"
+                style={{
+                  position: "absolute",
+                  top: "10px",
+                  left: "10px",
+                  width: "50px",
+                  height: "50px",
+                  borderRadius: '50px',
+                  zIndex: 1 // Ensure it's on top of the card
+                }}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+              />
+
+{isHovered && (
+            <div
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            style={{
+              position: 'absolute',
+              top: '10%', // Adjust position based on your design
+              left: '50%',
+              transform: 'translateX(-50%)',
+              backgroundImage: 'linear-gradient(120deg, rgba(48, 216, 255, 0.8) 0%, rgba(194, 67, 254, 0.8), rgba(194, 67, 254, 0.8))',
+              color: 'black',
+              padding: '20px',
+              border: '1px solid #ddd',
+              borderRadius: '15px',
+              boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
+              zIndex: 20,
+              width: '300px',
+              color: 'white'
+          }}
+            >
+            <div style={{display: 'flex', gap:'20px'}}>
+                <img 
+                src={`${"https://nftstorage.link/ipfs"}/${logo?.slice(7)}`}
+            
+            style={{width: '80px', borderRadius:'100px'}}/>
+              {/* <div className="font-bold mt-6">{onephygital?.brand_name}</div> */}
+              </div>
+              <div className="mt-4" style={{fontSize: '13px', marginBottom:'20px'}}>{desc}</div>
+
+              <Link href={`/brand/${brandid}`} style={{fontSize: '15px', border:'1px solid white', borderRadius:'30px', padding:'4px'}}>View brand page</Link>
+            </div>
+          )}
+
+<Link href={`https://webxr-ebon.vercel.app/${phygitals[0]?.id}`} target="_blank"
+style={{
+  position: "absolute",
+  top: "10px",
+  right: "10px",
+  padding: "5px 20px",
+  borderRadius: "10px",
+  border: '1px solid black',
+  background: 'white',
+  zIndex: 1 // Ensure it's on top of the card
+}}
+>
+Web XR
+</Link>
+</div>
   )
 }
 

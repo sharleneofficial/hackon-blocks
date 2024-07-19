@@ -20,6 +20,7 @@ const NFTPage = ({ params }) => {
   const [brandDesc, setbrandDesc] = useState("");
   const [loading, setLoading] = useState(false);
   const [sold, setsold] = useState(0);
+  const [brandid, setbrandid] = useState("");
 
   const chainId = useChainId();
   const account = useAccount();
@@ -146,6 +147,7 @@ const NFTPage = ({ params }) => {
      if (matchedBrand) {
        setLogos(matchedBrand.logo_image);
        setbrandDesc(matchedBrand.description);
+       setbrandid(matchedBrand.id);
 
        const fetch = async() => {
 
@@ -331,7 +333,7 @@ const NFTPage = ({ params }) => {
         </div>
         <div style={{display:'flex', gap:'40px', fontSize:'20px', color:'white'}} className="font-bold mt-6">
         <Link href="https://myriadflow.com" target="_blank">Home</Link>
-<Link href="">Explore</Link>
+<Link href="/#movetotrends">Explore</Link>
 <Link href="/collections">Collections</Link>
 <Link href="/brands">Brands</Link>
 <Link href="/profile">Dashboard</Link>
@@ -365,32 +367,31 @@ const NFTPage = ({ params }) => {
           <div className="text-4xl font-bold">{onephygital?.name}</div>
           <div className="text-lg mt-10 font-bold">Polygon Network</div>
           <div className="mt-6">Owned by {onephygital?.deployer_address}</div>
-          <div className="mt-4" 
-                    onMouseEnter={() => setIsHovered(true)}
-                    onMouseLeave={() => setIsHovered(false)}
-                    style={{position: 'relative'}}>
-            
-            <div>Created by <span className="font-bold" style={{cursor:'pointer'}}>{onephygital?.brand_name}</span></div>
-
+          <div className="mt-4" >
+          <div>Created by <span className="font-bold" style={{cursor:'pointer', position: 'relative'}}
+                                onMouseEnter={() => setIsHovered(true)}
+                                onMouseLeave={() => setIsHovered(false)}>{onephygital?.brand_name}
             
           {/* Pop-up Div */}
           {isHovered && (
             <div
-              style={{
-                position: 'absolute',
-                top: '10%', // Adjust position based on your design
-                left: '50%',
-                transform: 'translateX(-50%)',
-                backgroundColor: '#D9D8D8',
-                color: 'black',
-                padding: '20px',
-                border: '1px solid #ddd',
-                borderRadius: '15px',
-                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
-                zIndex: 20,
-                width: '300px',
-                // textAlign: 'center'
-              }}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            style={{
+              position: 'absolute',
+              top: '10%', // Adjust position based on your design
+              left: '50%',
+              transform: 'translateX(-50%)',
+              backgroundImage: 'linear-gradient(120deg, rgba(48, 216, 255, 0.8) 0%, rgba(194, 67, 254, 0.8), rgba(194, 67, 254, 0.8))',
+              color: 'black',
+              padding: '20px',
+              border: '1px solid #ddd',
+              borderRadius: '15px',
+              boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
+              zIndex: 20,
+              width: '300px',
+              color: 'white'
+          }}
             >
             <div style={{display: 'flex', gap:'20px'}}>
                 <img 
@@ -399,10 +400,12 @@ const NFTPage = ({ params }) => {
             style={{width: '80px', borderRadius:'100px'}}/>
               <div className="font-bold mt-6">{onephygital?.brand_name}</div>
               </div>
-              <div className="mt-4" style={{fontSize: '13px'}}>{brandDesc}</div>
+              <div className="mt-4" style={{fontSize: '13px', marginBottom:'20px'}}>{brandDesc}</div>
+              <Link href={`/brand/${brandid}`} style={{fontSize: '15px', border:'1px solid white', borderRadius:'30px', padding:'4px'}}>View brand page</Link>
             </div>
           )}
-
+</span>
+</div>
           </div>
 
 

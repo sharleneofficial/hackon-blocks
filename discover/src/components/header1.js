@@ -53,7 +53,7 @@ const Header1 = () => {
         </div>
         <div style={{ display: 'flex', gap: '40px', fontSize: '20px' }} className="font-bold mt-10">
           <Link href="https://myriadflow.com" target="_blank">Home</Link>
-          <Link href="">Explore</Link>
+          <Link href="/#movetotrends">Explore</Link>
           <Link href="/collections">Collections</Link>
           <Link href="/brands">Brands</Link>
           <Link href="/profile">Dashboard</Link>
