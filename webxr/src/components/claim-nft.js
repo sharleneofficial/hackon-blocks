@@ -5,15 +5,47 @@ import Image from 'next/image'
 import { useAccount, useChainId } from 'wagmi'
 import { ToastContainer, toast } from 'react-toastify'
 import { simulateContract, writeContract } from '@wagmi/core'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { X } from 'lucide-react'
 import { ConnectWallet } from './connect-wallet'
 import { rainbowconfig } from '@/lib/wagmi'
 import reward from '@/lib/reward.json'
 
-export const ClaimNft = ({ onClose, freeNft, brandName, contractAddress }) => {
+const baseUri = process.env.NEXT_PUBLIC_URI || 'https://app.myriadflow.com'
+
+export const ClaimNft = ({
+	onClose,
+	freeNft,
+	brandName,
+	contractAddress,
+	chainTypeId,
+	collectionId,
+	phygitalName,
+	phygitalId,
+}) => {
 	const [claimNft, setClaimNft] = useState(false)
+	const [brandId, setBrandId] = useState('')
 	const account = useAccount()
+
+	const getBrands = async () => {
+		// const chaintype = localStorage.getItem('PolygonCardonaChain')
+		const res = await fetch(`${baseUri}/brands/all`, {
+			method: 'GET',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		})
+
+		const result = await res.json()
+
+		const brand = result.filter((brand) => brand.name === brandName)
+
+		setBrandId(brand[0].id)
+	}
+
+	useEffect(() => {
+		getBrands()
+	}, [])
 
 	const handleClick = () => {
 		onClose(false)
@@ -27,11 +59,36 @@ export const ClaimNft = ({ onClose, freeNft, brandName, contractAddress }) => {
 			address: '0x09b6206ff5f662ACbc68286DBbe43b9fB873a955',
 			// address: '0x771C15e87272d6A57900f009Cd833b38dd7869e5',
 			functionName: 'createFanToken',
-			args: [String(contractAddress), 1, 1, '0x0', 'www.xyz.com'],
+			args: [
+				'0x09062b0E3fd736B839b9721772eb2f78a459018D',
+				1,
+				1,
+				'0x0',
+				'www.xyz.com',
+			],
 		})
 		const hash = await writeContract(rainbowconfig, request)
 
 		console.log(hash)
+		if (hash) {
+			const res = await fetch(`${baseUri}/fantoken`, {
+				method: 'POST',
+				body: JSON.stringify({
+					brand_id: brandId,
+					collection_id: collectionId,
+					phygital_id: phygitalId,
+					phygital_name: phygitalName,
+					chaintype_id: chainTypeId,
+					fan_token_id: hash,
+				}),
+			})
+
+			const result = await res.json()
+
+			if (result) {
+				setClaimNft(true)
+			}
+		}
 	}
 
 	const removePrefix = (uri) => {

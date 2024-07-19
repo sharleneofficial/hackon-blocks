@@ -50,7 +50,6 @@ export default function Home({ params }: { params: { id: string } }) {
 			const avatardata = await avatarRes.json()
 
 			console.log(data)
-			// console.log(webdata)
 
 			setProductInfo(data.product_info)
 			setPhygitalData(data)
@@ -66,6 +65,7 @@ export default function Home({ params }: { params: { id: string } }) {
 		fetchPhygitalData()
 		setTimeout(() => {
 			setUnlockClaimed(true)
+			// setUnlockModal(true)
 		}, 3000)
 	}, [])
 
@@ -134,7 +134,11 @@ export default function Home({ params }: { params: { id: string } }) {
 							onClose={closeClaimed}
 							freeNft={webXrData.free_nft_image}
 							brandName={phygitalData.brand_name}
+							phygitalName={phygitalData.name}
 							contractAddress={phygitalData.contract_address}
+							chainTypeId={phygitalData.chaintype_id}
+							collectionId={phygitalData.collection_id}
+							phygitalId={phygitalData.id}
 						/>
 					</div>
 				)}
