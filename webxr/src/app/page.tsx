@@ -18,7 +18,9 @@ export default function Home() {
 				}}
 			>
 				<div className='mt-4'>
-					<img src='/logo.png' style={{ width: '200px' }} alt='Logo' />
+					<a href="/">
+						<img src='/logo.png' style={{ width: '200px' }} alt='Logo' />
+					</a>
 				</div>
 				<div
 					style={{
