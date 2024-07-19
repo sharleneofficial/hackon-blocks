@@ -66,7 +66,7 @@ export default function Home({ params }: { params: { id: string } }) {
 		setTimeout(() => {
 			setUnlockClaimed(true)
 			// setUnlockModal(true)
-		}, 3000)
+		}, 30000)
 	}, [])
 
 	const removePrefix = (uri: any) => {
