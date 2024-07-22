@@ -21,66 +21,65 @@ export default function Home() {
 
 	// console.log("api url", apiUrl);
 
-	const [brands, setBrands] = useState([]);
-	const [phygitals, setPhygitals] = useState<any>([]);
-	const [collections, setCollections] = useState<any>([]);
-	const [loading, setLoading] = useState(false);
+	const [brands, setBrands] = useState([])
+	const [phygitals, setPhygitals] = useState<any>([])
+	const [collections, setCollections] = useState<any>([])
+	const [loading, setLoading] = useState(false)
 
 	const getBrands = async () => {
 		try {
-			setLoading(true);
-		 //   const res = await fetch(`${apiUrl}/api/brands`);
-		 //   const phyres = await fetch(`${apiUrl}/api/phygitals`);
-		 //   const collres = await fetch(`${apiUrl}/api/collections`);
+			setLoading(true)
+			//   const res = await fetch(`${apiUrl}/api/brands`);
+			//   const phyres = await fetch(`${apiUrl}/api/phygitals`);
+			//   const collres = await fetch(`${apiUrl}/api/collections`);
 
-		  const baseUri = process.env.NEXT_PUBLIC_URI || 'https://app.myriadflow.com';
-		//   localStorage.setItem("PloygonCardonaChain", "f0e4bdf6-2d6c-4c32-93d6-acf9ad5cdf44")
-		//   const chaintype = localStorage.getItem("PloygonCardonaChain")
+			const baseUri =
+				process.env.NEXT_PUBLIC_URI || 'https://app.myriadflow.com'
+			//   localStorage.setItem("PloygonCardonaChain", "f0e4bdf6-2d6c-4c32-93d6-acf9ad5cdf44")
+			//   const chaintype = localStorage.getItem("PloygonCardonaChain")
 
-		  const res = await fetch(`${baseUri}/brands/all`, {
-			method: 'GET',
-			headers: {
-				'Content-Type': 'application/json'
-			}
-			});
+			const res = await fetch(`${baseUri}/brands/all`, {
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			})
 
 			const phyres = await fetch(`${baseUri}/phygitals/all`, {
 				method: 'GET',
 				headers: {
-					'Content-Type': 'application/json'
-				}
-				});
+					'Content-Type': 'application/json',
+				},
+			})
 
-				const collres = await fetch(`${baseUri}/collections/all`, {
-					method: 'GET',
-					headers: {
-						'Content-Type': 'application/json'
-					}
-					});
+			const collres = await fetch(`${baseUri}/collections/all`, {
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			})
 
-		  
-	  
-		  if (!res.ok || !phyres.ok || !collres.ok) {
-			throw new Error('Failed to fetch data');
-		  }
-	  
-		  const result = await res.json();
-		  console.log("Brands",result)
-		  const phyresult = await phyres.json();
-		  const collresult = await collres.json();
-	  
-		  setBrands(result);
-		  setPhygitals(phyresult);
-		  setCollections(collresult);
+			if (!res.ok || !phyres.ok || !collres.ok) {
+				throw new Error('Failed to fetch data')
+			}
 
-		  setLoading(false);
+			const result = await res.json()
+			// console.log("Brands",result)
+			const phyresult = await phyres.json()
+			const collresult = await collres.json()
 
-		  console.log("new database output", result, phyresult, collresult);
+			setBrands(result)
+			setPhygitals(phyresult)
+			setCollections(collresult)
+
+			setLoading(false)
+
+			console.log('new database output', result, phyresult, collresult)
 		} catch (error) {
-		  console.error('Error fetching data:', error);
-		  setLoading(false);
+			console.error('Error fetching data:', error)
+			setLoading(false)
 		}
-	  };
+	}
 
 	useEffect(() => {
 		getBrands()
@@ -119,8 +118,16 @@ export default function Home() {
 					</div>
 					<div className='flex gap-10 mt-10'>
 						{/* <Link href="https://discover-polygon.vercel.app/" style={exploreButtonStyle}>Explore</Link> */}
-						<Link href="#movetotrends" style={exploreButtonStyle}>Explore</Link>
-						<Link href="https://studio-polygon.vercel.app/" target="_blank" style={exploreButtonStyle}>Launch</Link>
+						<Link href='#movetotrends' style={exploreButtonStyle}>
+							Explore
+						</Link>
+						<Link
+							href='https://studio-polygon.vercel.app/'
+							target='_blank'
+							style={exploreButtonStyle}
+						>
+							Launch
+						</Link>
 					</div>
 				</div>
 
@@ -308,12 +315,12 @@ export default function Home() {
 			</div>
 
 			<div className='pt-10 bg-white px-10'>
-				<MostLoved collectionsdata={collections}/>
+				<MostLoved collectionsdata={collections} />
 			</div>
 
 			<div className='pt-40 bg-white px-10'>
 				{/* <MostRecently collectionsdata={collections}/> */}
-				<LatestNFTs hotnftdata={phygitals}/>
+				<LatestNFTs hotnftdata={phygitals} />
 			</div>
 
 			<div className='pt-40 bg-white'>
@@ -321,11 +328,11 @@ export default function Home() {
 			</div>
 
 			<div className='pt-40 bg-white px-10'>
-				<HotNFTs hotnftdata={phygitals}/>
+				<HotNFTs hotnftdata={phygitals} />
 			</div>
 
 			<div className='pt-40 bg-white px-10'>
-				<Brand brandsdata={brands}/>
+				<Brand brandsdata={brands} />
 			</div>
 
 			<div className='bg-white'>
@@ -336,37 +343,48 @@ export default function Home() {
 				<Footer />
 			</div>
 
-
 			{loading && (
-  <div
-    style={{
-    //   backgroundColor: "#222944E5",
-      display: "flex",
-      overflowY: "auto",
-      overflowX: "hidden",
-      position: "fixed",
-      inset: 0,
-      zIndex: 50,
-      justifyContent: "center",
-      alignItems: "center",
-      width: "100%",
-      maxHeight: "100%",
-    }}
-    id="popupmodal"
-  >
-    <div style={{ position: "relative", padding: "1rem", width: "100%", maxHeight: "100%" }}>
-      <div style={{ position: "relative"}}>
-        <div style={{ display: "flex", justifyContent: "center", gap: "1rem" }}>
-          <img
-            src="https://i.pinimg.com/originals/36/3c/2e/363c2ec45f7668e82807a0c053d1e1d0.gif"
-            alt="Loading icon"
-          />
-        </div>
-      </div>
-    </div>
-  </div>
-)}
-
+				<div
+					style={{
+						//   backgroundColor: "#222944E5",
+						display: 'flex',
+						overflowY: 'auto',
+						overflowX: 'hidden',
+						position: 'fixed',
+						inset: 0,
+						zIndex: 50,
+						justifyContent: 'center',
+						alignItems: 'center',
+						width: '100%',
+						maxHeight: '100%',
+					}}
+					id='popupmodal'
+				>
+					<div
+						style={{
+							position: 'relative',
+							padding: '1rem',
+							width: '100%',
+							maxHeight: '100%',
+						}}
+					>
+						<div style={{ position: 'relative' }}>
+							<div
+								style={{
+									display: 'flex',
+									justifyContent: 'center',
+									gap: '1rem',
+								}}
+							>
+								<img
+									src='https://i.pinimg.com/originals/36/3c/2e/363c2ec45f7668e82807a0c053d1e1d0.gif'
+									alt='Loading icon'
+								/>
+							</div>
+						</div>
+					</div>
+				</div>
+			)}
 		</div>
 	)
 }
