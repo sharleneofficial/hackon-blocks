@@ -79,7 +79,7 @@ export const ClaimNft = ({
 					phygital_id: phygitalId,
 					phygital_name: phygitalName,
 					chaintype_id: chainTypeId,
-					fan_token_id: hash,
+					fantoken_id: hash,
 				}),
 			})
 

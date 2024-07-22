@@ -49,7 +49,7 @@ export default function Home({ params }: { params: { id: string } }) {
 			const webdata = await webxr.json()
 			const avatardata = await avatarRes.json()
 
-			console.log(data)
+			// console.log(data)
 
 			setProductInfo(data.product_info)
 			setPhygitalData(data)
