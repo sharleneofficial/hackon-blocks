@@ -4,6 +4,7 @@ import Link from "next/link";
 
 const ConfirmAddr = ({ params }) => {
   const id = params?.id;
+  const nft = params?.nft;
 
   const [isHovered, setIsHovered] = useState(false);
   const [confirmClicked, setconfirmClicked] = useState(false);
@@ -188,7 +189,7 @@ const ConfirmAddr = ({ params }) => {
         </div>
         <div style={{ display: "flex", alignItems: "center", paddingTop: "20px", paddingBottom: "16px" }}>
           <a
-            href="/"
+            href={`https://webxr-polygon.vercel.app/${nft?.id}`}
             type="button"
             style={{
               width: "50%",
@@ -205,7 +206,7 @@ const ConfirmAddr = ({ params }) => {
               backgroundColor: 'white',
             }}
           >
-            Go Back to Discover
+            Experience in WebXR
           </a>
         </div>
 
